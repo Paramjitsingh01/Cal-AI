@@ -222,7 +222,7 @@ log_df = pd.DataFrame(st.session_state.log)
 eaten = float(log_df["calories"].sum()) if not log_df.empty else 0.0
 remaining = target - eaten
 
-greeting = f"Hi {name.strip()} 👋" if name.strip() else "CalSnap AI"
+greeting = f"Hi {name.strip()} 👋" if name.strip() else "Cal AI"
 st.markdown(f'<div class="hero"><h1>{greeting}</h1><p>Snap your meal, estimate calories and macros, track your day, and explore a BMI-based fitness plan.</p></div>', unsafe_allow_html=True)
 st.markdown(f'''<div class="kpis">
 <div class="kpi g1"><div class="lbl">Eaten today</div><div class="val">{eaten:,.0f}</div><div>kcal</div></div>
@@ -332,7 +332,7 @@ with tab_log:
         bar.update_layout(height=280, margin=dict(t=25, b=10, l=10, r=10), yaxis_title="kcal", paper_bgcolor="rgba(0,0,0,0)", plot_bgcolor="rgba(0,0,0,0)")
         st.plotly_chart(bar, use_container_width=True, config={"displayModeBar": False}, key="meal_calorie_bar")
         d1, d2 = st.columns(2)
-        d1.download_button("⬇️ Download log (CSV)", current_log.drop(columns=["id"], errors="ignore").to_csv(index=False), file_name=f"calsnap_log_{dt.date.today()}.csv", mime="text/csv")
+        d1.download_button("⬇️ Download log (CSV)", current_log.drop(columns=["id"], errors="ignore").to_csv(index=False), file_name=f"cal_ai_log_{dt.date.today()}.csv", mime="text/csv")
         if d2.button("🧹 Clear today's log"):
             st.session_state.log = []
             st.session_state.added_ids = set()
@@ -388,7 +388,7 @@ with tab_fit:
 
 with tab_about:
     st.markdown("""
-### 🧠 How CalSnap AI works
+### 🧠 How Cal AI works
 1. **Capture:** take a meal photo or upload one.
 2. **Recognise:** Google Gemini Vision identifies visible foods and estimates portions.
 3. **Estimate:** calories, protein, carbs, fat, fiber, sugar and sodium are estimated.
@@ -404,4 +404,4 @@ with tab_about:
 Nutrition estimates from photos can be inaccurate, especially when portion sizes, oils, sauces, and ingredients are hidden. BMI is a screening measure, not a diagnosis. This app is for general wellness and is not medical advice.
 """)
 
-st.markdown('<p style="text-align:center;opacity:.6;font-size:.8rem;margin-top:2rem">Made with ❤️ using Streamlit and Google Gemini · CalSnap AI</p>', unsafe_allow_html=True)
+st.markdown('<p style="text-align:center;opacity:.6;font-size:.8rem;margin-top:2rem">Made with ❤️ using Streamlit and Google Gemini · Cal AI</p>', unsafe_allow_html=True)
