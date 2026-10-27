@@ -1,4 +1,4 @@
-"""CalSnap AI — food photo calorie estimator and simple fitness dashboard.
+"""Cal AI — food photo calorie estimator and simple fitness dashboard.
 
 Run locally:
     pip install -r requirements.txt
@@ -24,7 +24,7 @@ try:
 except Exception:
     GENAI_OK = False
 
-st.set_page_config(page_title="CalSnap AI · Food Calorie Scanner", page_icon="🥗", layout="wide")
+st.set_page_config(page_title="Cal AI · Food Calorie Scanner", page_icon="🥗", layout="wide")
 
 st.markdown("""
 <style>
